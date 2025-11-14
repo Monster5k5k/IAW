@@ -1,5 +1,3 @@
-
-/* El contenedor principal de toda la página */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -11,9 +9,6 @@
 .main-content {
   display: flex;
   flex: 1;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 }
 
 .header {
@@ -35,10 +30,6 @@
   flex: 1; 
   padding: 20px;
   border-right: 2px solid #555;
-  @media (max-width: 768px) {
-    border-right: none;
-    border-bottom: 2px solid #555;
-  }
 }
 
 .content {
@@ -83,7 +74,7 @@
 }
 
 
-/* 2. Contenedor de video*/
+/* 2. Contenedor de video */
 .video-container {
   position: relative;
   width: 100%;
@@ -123,6 +114,7 @@
   margin-bottom: 10px;
 }
 
+/* 4. Estilos del Footer */
 .social-icons {
   margin-bottom: 15px; 
 }
@@ -142,6 +134,7 @@
   font-size: 0.9rem;
 }
 
+/* 5. Estilos del Carrusel */
 .gallery-section h2 {
   color: #ffa500; 
   border-bottom: 1px solid #555;
@@ -149,76 +142,103 @@
   margin-top: 40px; 
 }
 
-/* El contenedor de imagenes */
-.gallery-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.gallery-item {
-  border: 1px solid #444;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: auto; 
-  border-radius: 3px;
-  margin-bottom: 10px;
-}
-
-.gallery-item p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-
-.gallery-item {
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(255, 165, 0, 0.5); 
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+.carousel-container {
+  position: relative; 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  cursor: pointer;
-}
-
-.modal-image {
-  max-width: 90%; 
-  max-height: 90vh; 
-  border: 3px solid #555;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #444;
   border-radius: 5px;
+  padding: 20px;
+  overflow: hidden; 
 }
 
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: #fff;
-  font-size: 40px;
+.carousel-image-container {
+  text-align: center;
+}
+
+.carousel-image {
+  max-width: 100%; 
+  max-height: 500px; 
+  height: auto;
+  border-radius: 3px;
+}
+
+.carousel-title {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ccc;
   font-weight: bold;
-  cursor: pointer;
 }
 
-.modal-close:hover {
+.carousel-button {
+  position: absolute; 
+  top: 50%;
+  transform: translateY(-50%); 
+  
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid #555;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+
+.carousel-button:hover {
+  background-color: rgba(255, 165, 0, 0.8); 
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+
+/* 6. Estilos Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 2px solid #555;
+  }
+}
+
+
+
+.selector-container {
+  margin-bottom: 25px; 
+}
+
+.selector-container label {
+  display: block; 
+  margin-bottom: 8px;
+  font-weight: bold;
   color: #ffa500;
+}
+
+.hero-selector {
+  width: 100%; 
+  padding: 8px;
+  background-color: #222; 
+  color: #f0f0f0; 
+  border: 1px solid #555;
+  border-radius: 3px;
+  font-family: inherit; 
+  font-size: 0.9rem;
+}
+
+.hero-selector option {
+  background-color: #333;
+  color: #f0f0f0;
 }
